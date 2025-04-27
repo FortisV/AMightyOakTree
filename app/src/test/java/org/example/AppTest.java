@@ -3,12 +3,26 @@
  */
 package org.example;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    @Test
+    void testLeft() {
+        Squirrel s1 = new Squirrel("Squirrel 1");
+        Squirrel s2 = new Squirrel("Squirrel 2");
+        Node<Squirrel> root = new Node<>(s1);
+        Node<Squirrel> left = new Node<>(s2);
+        root.set_left(left);
+        Assertions.assertEquals(left, root.left());
+    }
+    @Test
+    void testRight() {
+        Squirrel s1 = new Squirrel("Squirrel 1");
+        Squirrel s2 = new Squirrel("Squirrel 2");
+        Node<Squirrel> root = new Node<>(s1);
+        Node<Squirrel> right = new Node<>(s2);
+        root.set_right(right);
+        Assertions.assertEquals(right, root.right());
     }
 }
